@@ -1,0 +1,53 @@
+<div class="container text-center mt-5">
+  <h1 class="text-light">To Do List </h1>
+  <div class="row d-flex justify-content-center mt-4">
+    <input id="id_task" type="text" placeholder="I have to do..." class="form-control w-25" [(ngModel)]="todovalue"
+      (keyup.enter)="addItem()" />
+    <!-- <input id="id_date" type="date" class="form-control w-25 mx-2" [(ngModel)]="datevalue" (keyup.enter)="addItem()" /> -->
+    <select name="selectCat" class="form-control w-25 mx-2" [(ngModel)]="catvalue">
+      <option value="">Choose category</option>
+      <option value="Angular">Angular</option>
+      <option value="React">React</option>
+      <option value="Java Script">Java Script</option>
+      <option value="BootStrap">bootstrap</option>
+      <option value="Sport">Sport</option>
+      <option value="Sohpping">Sohpping</option>
+      <option value="Home Work">Home Work</option>
+
+    </select>
+    
+    <button class="btn btn-success" (click)="addItem()">Add Reminder</button>
+  </div>
+  <div class="d-flex justify-content-center">
+    <ul class="list-group w-50  mt-3">
+      <li class="list-group-item d-flex justify-content-between align-items-center p-1 mb-2" *ngFor="let item of list">
+
+        <!-- <div class="d-flex justify-content-between align-items-center"> -->
+
+          <div class="col-4 text-left">
+            <input type="checkbox" name="isDone" [(ngModel)]="item.isDone">
+            <!-- {{item.value}} -->
+            {{item.name}}
+          </div>
+          <div class="col-3">
+            <!-- {{item.cat}} -->
+            {{item.category}}
+          </div>
+          <div class="col-3"> {{item.date | date: 'dd-MM-yyyy'}}</div>
+        <!-- </div> -->
+        <div class="col-2">
+          <div class="row">
+            <button class="btn btn-warning float-right" (click)="editItem(item.id)">edit</button>
+            <button class="btn btn-danger float-right" (click)="deleteItem(item._id)">X</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-danger" (click)="clearAllList()">Clear Reminder</button>
+</div>
+<!-- <ul>
+  <li><a routerLink="">Home</a></li>
+  <li><a routerLink="">Project</a></li>
+</ul>
+<app-home></app-home> -->

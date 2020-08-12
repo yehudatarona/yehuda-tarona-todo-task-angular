@@ -1,0 +1,31 @@
+.container{
+    display: grid;
+    grid-template-columns: 50% auto;
+}
+
+div.col{
+    padding: .4em 1.3;
+}
+.color-dark{
+    background-color: aquamarine;
+
+}
+
+.color-light{
+    background-color: cadetblue;
+
+}
+input.text{
+    border: 0;
+    padding: 1em;
+    width: 90%;
+    margin-bottom: 2em;
+}
+
+input.btn{
+    border: 0 ;
+    display: block ;
+    padding: 1em 3em ;
+    background-color: chartreuse ;
+    color: cornflowerblue ;
+}
