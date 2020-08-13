@@ -1,0 +1,25 @@
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.dark{
+    position: fixed;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 999;
+}
+.dark_inside{
+    width:100%;
+    max-width: 800px;
+    min-height: 150px;
+    background-color: white;
+    border:2px solid darkblue;
+}
+
+/* .dark_inside{
+    max-height: 240px;
+} */
+
+

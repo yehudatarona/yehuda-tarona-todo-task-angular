@@ -1,9 +1,27 @@
+<div id="id_dark" class="dark container-fluid center d-none">
+    <div class="row dark_inside center">
+      <input id="id_input" type="text"  class="form-control w-25" [(ngModel)]="inputDark"/>
+   
+      <select name="selectCat" class="form-control w-25 mx-2" [(ngModel)]="catDark">
+        <option value={{catDark}}>{{catDark}}</option>
+        <option value="Angular">Angular</option>
+        <option value="React">React</option>
+        <option value="Java Script">Java Script</option>
+        <option value="BootStrap">bootstrap</option>
+        <option value="Sport">Sport</option>
+        <option value="Sohpping">Sohpping</option>
+        <option value="Home Work">Home Work</option>
+      </select>
+      <button class="btn btn-success" (click)="editItem()">Add</button>
+      <button class="btn btn-danger sm-3" (click)="closeDark()">Close</button>
+  </div>
+</div>
+
 <div class="container text-center mt-5">
   <h1 class="text-light">To Do List </h1>
   <div class="row d-flex justify-content-center mt-4">
     <input id="id_task" type="text" placeholder="I have to do..." class="form-control w-25" [(ngModel)]="todovalue"
-      (keyup.enter)="addItem()" />
-    <!-- <input id="id_date" type="date" class="form-control w-25 mx-2" [(ngModel)]="datevalue" (keyup.enter)="addItem()" /> -->
+      (keyup.enter)="addItem()"/>
     <select name="selectCat" class="form-control w-25 mx-2" [(ngModel)]="catvalue">
       <option value="">Choose category</option>
       <option value="Angular">Angular</option>
@@ -13,12 +31,17 @@
       <option value="Sport">Sport</option>
       <option value="Sohpping">Sohpping</option>
       <option value="Home Work">Home Work</option>
-
     </select>
     
     <button class="btn btn-success" (click)="addItem()">Add Reminder</button>
+    <select name="sortBy" (change)="sortBy()" class="mx-3 rounded-lg " [(ngModel)]="soryValue">
+      <option value="">Sort By...</option>
+      <option value="name">Name</option>
+      <option value="category">Category</option>
+      <option value="date">Date</option>
+    </select>
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center mt-4">
     <ul class="list-group w-50  mt-3">
       <li class="list-group-item d-flex justify-content-between align-items-center p-1 mb-2" *ngFor="let item of list">
 
@@ -37,7 +60,7 @@
         <!-- </div> -->
         <div class="col-2">
           <div class="row">
-            <button class="btn btn-warning float-right" (click)="editItem(item.id)">edit</button>
+            <button class="btn btn-warning float-right" (click)="edit(item._id,item.name,item.category)">edit</button>
             <button class="btn btn-danger float-right" (click)="deleteItem(item._id)">X</button>
           </div>
         </div>
@@ -46,6 +69,9 @@
   </div>
   <button class="btn btn-danger" (click)="clearAllList()">Clear Reminder</button>
 </div>
+
+
+
 <!-- <ul>
   <li><a routerLink="">Home</a></li>
   <li><a routerLink="">Project</a></li>
